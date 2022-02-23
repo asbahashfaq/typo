@@ -4,22 +4,56 @@ var correct = 0;
 var speed = 0;
 var accuracy = 100;
 
+var audio = new Audio("/media/audio/error.m4a");
+audio.volume = 0.05;
 var error_sound = document.querySelector('#error_sound');   
 
 var typing_text = document.querySelector('.typing_area .todo')
 var typed_text = document.querySelector('.typing_area .done') 
 var keyCatcher = document.querySelector('#key_catcher') 
+var firstKey = false, completed = false;
+var start, end;
 keyCatcher.addEventListener("keypress", function(event) {
+
+    console.log( "FIRST KEY : "+ firstKey)
+    if( firstKey == false ){
+        start = new Date().getTime();
+        firstKey = true
+    }
+
     console.log(event.key)
     console.log(typing_text.textContent[0])
+
     if (event.key == typing_text.textContent[0]){
         keyCatcher.value = ''
         typing_text.textContent = typing_text.textContent.substring(1)
         typed_text.textContent += event.key
         correct ++;
-    }else{
-        error_sound.play();
+
+    }else{ 
+        audio.play();
         errors ++;
+    }
+    accuracy = (correct/(errors+correct))*100
+    if (typing_text.textContent == "" && completed == false)
+    {
+        end = new Date().getTime(); 
+        time_in_seconds = (end-start)/1000
+        cpm = ( correct / time_in_seconds ) * 60 
+        wpm = cpm / 5
+        console.log(start)
+        console.log(end)
+        console.log(end-start)
+        console.log(speed)
+
+        var data = {speed: wpm, accuracy: accuracy, paragraph: typed_text.textContent};
+        var queryString = "?speed=" + wpm + "&accuracy=" + accuracy + "&paragraph=" + typed_text.textContent; 
+        fetch("/speed_tests" + queryString, {
+            method: "POST", 
+        }).then(res => {
+            console.log("Request complete! response:", res);
+            completed = true
+        });
     }
 });
 
