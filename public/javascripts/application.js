@@ -1,8 +1,10 @@
+
 var errors = 0;
 var correct = 0;
 var speed = 0;
 var accuracy = 100;
 
+var error_sound = document.querySelector('#error_sound');   
 
 var typing_text = document.querySelector('.typing_area .todo')
 var typed_text = document.querySelector('.typing_area .done') 
@@ -16,6 +18,7 @@ keyCatcher.addEventListener("keypress", function(event) {
         typed_text.textContent += event.key
         correct ++;
     }else{
+        error_sound.play();
         errors ++;
     }
 });
