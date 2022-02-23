@@ -1,4 +1,4 @@
-require 'pry'
+
 def test_complete(user_id, paragraph, wpm, accuracy)
     
     #Update paragraphs records

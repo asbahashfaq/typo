@@ -1,4 +1,4 @@
-     
+require 'pry' if development?     
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'bcrypt'
