@@ -1,4 +1,4 @@
-<h1>hello world</h1>
+ 
 <% if logged_in? %>
     <h2>Logged in user: <%= current_user()['first_name'] %></h2>
     <form action="/sessions" method="POST">
@@ -10,7 +10,8 @@
     <a href="/sign_up">Sign up</a>
     <a href="/sign_in">Sign in</a>
 <% end %>
-<section>
+<a href="/all_paragraphs">View Paragraphs</a>
+<section class="testSection">
     <p>Start typing</p>
     <div class="typing_area">
         <input id="key_catcher"></textarea>
@@ -18,4 +19,32 @@
         
     </div> 
     
+</section>
+
+<section class="leaderBoardSection">
+    <h2>Leaderboard</h2>
+    <div class="topScoresTable">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="1"> </th>
+                    <th colspan="1"> </th>
+                    <th colspan="1">Speed(wpm)</th>
+                    <th colspan="1">Accuracy</th>
+                    <th colspan="1">Tests Taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% top_scores.each do |user| %>
+                <tr>
+                    <td> <%= user['rank']%> </td>
+                    <td> <%= user['first_name']%> <%= user['last_name']%> </td>
+                    <td> <%= user['wpm']%> </td>
+                    <td> <%= user['accuracy']%> </td>
+                    <td> <%= user['tests_taken']%> </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
 </section>

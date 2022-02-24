@@ -6,6 +6,8 @@ var accuracy = 100;
 
 var audio = new Audio("/media/audio/error.m4a");
 audio.volume = 0.05;
+var ohmygod = new Audio("/media/audio/ohmygod.m4a");
+ohmygod.volume = 0.05;
 var error_sound = document.querySelector('#error_sound');   
 
 var typing_text = document.querySelector('.typing_area .todo')
@@ -15,14 +17,14 @@ var firstKey = false, completed = false;
 var start, end;
 keyCatcher.addEventListener("keypress", function(event) {
 
-    console.log( "FIRST KEY : "+ firstKey)
+    // console.log( "FIRST KEY : "+ firstKey)
     if( firstKey == false ){
         start = new Date().getTime();
         firstKey = true
     }
 
-    console.log(event.key)
-    console.log(typing_text.textContent[0])
+    // console.log(event.key)
+    // console.log(typing_text.textContent[0])
 
     if (event.key == typing_text.textContent[0]){
         keyCatcher.value = ''
@@ -33,6 +35,8 @@ keyCatcher.addEventListener("keypress", function(event) {
     }else{ 
         audio.play();
         errors ++;
+        if (errors > 10)
+            ohmygod.play();
     }
     accuracy = (correct/(errors+correct))*100
     if (typing_text.textContent == "" && completed == false)
@@ -40,12 +44,8 @@ keyCatcher.addEventListener("keypress", function(event) {
         end = new Date().getTime(); 
         time_in_seconds = (end-start)/1000
         cpm = ( correct / time_in_seconds ) * 60 
-        wpm = cpm / 5
-        console.log(start)
-        console.log(end)
-        console.log(end-start)
-        console.log(speed)
-
+        wpm = cpm / 5 
+        console.log("SPEED : "+ wpm);
         var data = {speed: wpm, accuracy: accuracy, paragraph: typed_text.textContent};
         var queryString = "?speed=" + wpm + "&accuracy=" + accuracy + "&paragraph=" + typed_text.textContent; 
         fetch("/speed_tests" + queryString, {
@@ -53,6 +53,7 @@ keyCatcher.addEventListener("keypress", function(event) {
         }).then(res => {
             console.log("Request complete! response:", res);
             completed = true
+            window.setTimeout(function(){location.reload()},3000)
         });
     }
 });

@@ -18,11 +18,12 @@ CREATE TABLE accounts(
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
-CREATE TABLE average_speeds(        --DROPPED 
+CREATE TABLE scores(        
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
     wpm INTEGER,
     accuracy INTEGER,
+    tests_taken INTEGER,
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
@@ -45,5 +46,3 @@ CREATE TABLE paragraphs(
     avg_accuracy INTEGER
 );
 
-
- 

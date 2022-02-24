@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past tests</title>
+</head>
+<body>
+    <h2>
+        Speed tests : 
+    </h2>
+
+    <section class="<%=test_visibility%>">
+        <p>Start typing</p>
+        <div class="typing_area">
+            <input id="key_catcher"></textarea>
+            <div class="test_tracker"><span class="done"></span><span class="todo"><%=paragraph%></span></div>
+            
+        </div> 
+    </section>
+    <p>all tests: </p>
+    <ol>
+        <% paragraphs.each do |para| %>
+            <li>  
+                <p class="paragraph"><%= para['paragraph'] %></p>
+                <span class="attempts"><%= para['attempts'] %></span>
+                <span class="highest_score"><%= para['highest_score'] %></span>
+                <span class="avg_accuracy"><%= para['avg_accuracy'] %></span>
+                <span class="top_scorer"><%= para['top_scorer'] %></span>
+                <div class="buttons">
+                    <a href="/try/<%= para['id'] %>">Try this</a> 
+                </div>
+            </li>
+        <% end %>
+    </ol>
+</body>
+</html>attempts | highest_score | avg_accuracy | top_scorer

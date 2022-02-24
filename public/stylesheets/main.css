@@ -32,3 +32,10 @@
     position: absolute;
     content: "_";
 }
+
+.hidden{
+    display: none;
+}
+.visible{
+    display: block;
+}
