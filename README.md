@@ -20,35 +20,44 @@ The database schema consists of 5 tables, with one to one, one to many and many 
 
 ### 3- Backend Development
 The backend development invovled the following steps: 
-1 - Database creation and population using schema 
-2 - User sign up and sign in
-3 - API integration. API used to get paragraphs: <a href="http://metaphorpsum.com/">Metaphorpsum</a>
-4 - Speed test - CRUD 
+<ol>
+    <li>Database creation and population using schema </li>
+    <li>User sign up and sign in</li>
+    <li>API integration. API used to get paragraphs: <a href="http://metaphorpsum.com/">Metaphorpsum</a></li>
+    <li>Speed test - CRUD </li>
+</ol> 
 
 ### 4- Frontend Development
 The front end development involved the following steps:
-1 - HTML Structure for all pages
-2 - In-browser calculation of typing speed using JavaScript and sending a request to backend from JavaScript
-3 - CSS
+<ol>
+    <li>HTML Structure for all pages</li>
+    <li>In-browser calculation of typing speed using JavaScript and sending a request to backend from JavaScript</li>
+    <li>CSS</li>
+</ol> 
 
 ## Technologies used
-- Sinatra
-- Ruby 
-- Postgresql
-- HTML
-- CSS
-- JavaScript
-- GitHub
-- Heroku
+<ul>
+    <li>Sinatra</li>
+    <li>Ruby</li>
+    <li>Postgresql</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>GitHub</li>
+    <li>Heroku</li>
+</ul>
 
 ## Lessons Learnt
-- Ruby practice
-- CRUD app best practices
-- Heroku hosting
+<ul>
+    <li>Ruby practice</li>
+    <li>CRUD app best practices</li>
+    <li>Heroku hosting</li>
+</ul>
 
 ## Future Features
-- Add categories to paragraphs, so users can type paragraphs from topics of their choice
-- Add live competition with othre players
-- Add game element to typing
-
+<ul>
+    <li>Add categories to paragraphs, so users can type paragraphs from topics of their choice</li>
+    <li>Add live competition with othre players</li>
+    <li>Add game element to typing</li>
+</ul> 
 
