@@ -1,5 +1,4 @@
-require 'httparty'
-require 'pry'
+require 'httparty' 
 
 get '/' do
     random_sentences = rand(1..4)
