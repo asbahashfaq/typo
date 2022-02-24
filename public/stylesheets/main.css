@@ -1,13 +1,42 @@
+html{
+    position: relative;
+}
+body{
+    font-family: 'WarenhausTypenhebelStandard';
+    font-size: 1.2em;    
+    padding-bottom: 150px;
+    min-height: 100vh;
+}
+html,body{
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+nav{
+    padding: 30px;
+}
+
 .done{
     color:blue;
 }
-
-
 .typing_area{
     position: relative;
     height: fit-content;
-    width: fit-content;
-    max-width: 80%;
+    min-width: 60%;
+    width: 100%;
+    max-width: 100%;
+    margin: 0px auto;
+}
+section.testSection {
+    padding: 20px;
+    max-width: 1100px;
+    width: 80%;
     margin: 0px auto;
 }
 .typing_area #key_catcher{
@@ -24,6 +53,14 @@
     font-size: 1.2em;
     font-family: monospace;
 }
+.scores {
+    display: flex;
+    justify-content: space-between;
+}
+.scores span {
+    padding: 7px;
+    padding-top: 17px;
+}
 .todo:first-letter 
 {
   text-decoration:underline;
@@ -38,4 +75,276 @@
 }
 .visible{
     display: block;
+}
+
+
+.show{
+    height:40px;
+    bottom:0;
+    transition: height 0.4s;
+}
+.hide{
+    height: 0;
+    top:0;
+    transition: height 0.4s;
+}
+
+.scores .speed:after{
+    content: " wpm";
+}
+.scores .accuracy:after{
+    content: " %";
+}
+.scores .speed:before{
+    content: "Speed: ";
+}
+.scores .accuracy:before{
+    content: "Accuracy: ";
+}
+.waiting{
+    opacity: 0;
+}
+.waiting_visible{
+    opacity: 1!important;
+}
+.call_for_action{
+    text-align: center;
+    padding: 70px;
+}
+.call_for_action .sign_in, .call_for_action .sign_up {
+    padding: 16px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 20px black;
+}
+.call_for_action .sign_in{
+    background: rgb(0 188 212);
+}
+.call_for_action .sign_up{
+    background: rgb(0 212 126);
+}
+.leaderBoardSection {
+    margin: 0px auto; 
+    width: 60%;
+}
+.leaderBoardSection table{
+    width: 100%;
+}
+thead tr th{
+    text-align:center;
+    padding: 10px;
+}
+tr td{
+    text-align:center;
+}
+tr td:nth-child(2), tr td:nth-child(1) {
+    text-align: left;
+}
+footer {
+    background-color: #d8d8db;
+    text-align: center;
+    padding: 30px; 
+    margin-top: 40px;
+    bottom: 0;
+    position: absolute;
+    width: 100vw;
+}
+    
+.signout_form button {
+    height: 40px;
+    border: 0px;
+    font-family: inherit;
+    font-size: inherit;
+    background: 0;
+    cursor: pointer;
+    display: block;
+    display: inline-block;
+} 
+/*
+.user_name{
+    height: 40px;
+    transition: height 0.4s;
+    top: 0;
+    overflow: hidden;
+    margin: 0px;
+    text-align: right;
+    cursor: pointer;
+    display: inline-block;
+}
+.signout_form{
+    height: 0;
+    bottom:0;
+    transition: height 0.4s;
+    overflow: hidden; 
+    text-align: right;
+} 
+.username_block:hover .user_name {
+    height: 0px!important; 
+    top: 0;
+}
+.username_block:hover .signout_form button {
+    height: 40px!important;  
+    bottom:0;
+}
+nav a, nav button, nav form{
+    height: 40px;
+    display: inline-block;
+} */
+ 
+.username_block{
+    position: relative;  
+    width: 150px;
+    height: 25px;
+    /* width: 100px; */
+    overflow: hidden;
+}
+.username_block .user_name, .username_block form{
+    position: absolute;
+}
+.username_block form{
+    top:40px;
+    transition: top 0.4s;
+    text-align: center; 
+    width: 100%;
+}
+.username_block:hover form{
+    top: -7px;
+    transition: top 0.4s;
+}
+.username_block .user_name{
+    top:0px;
+    transition: top 0.4s;
+}
+.username_block:hover .user_name{
+    top:-40px;
+    transition: top 0.4s;
+}
+nav a, nav .user_name{ 
+    padding: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 13px;
+}
+nav{
+    display: flex;
+}
+
+.paragraphsSection {
+    max-width: 80%;
+    margin: 0px auto;
+}
+.all_tests_section tr td:first-child{ 
+    max-width: 190px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.all_tests_section tr td{
+    text-align: center;
+}
+.all_tests_section tr th:first-child{
+    text-align: left;
+}
+.all_tests_section tr td:nth-child(5), tr td:nth-child(1) {
+    text-align: left;
+}
+.history p{
+    margin-bottom: 7px;
+}
+.history .buttons{
+
+    display: flex;
+}
+.buttons button{ 
+    border: 0px;
+    font-family: inherit;
+    font-size: inherit;
+    background: 0;
+    cursor: pointer; 
+}
+.buttons button, .buttons a {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 20px; 
+    border-radius: 5px;
+    color: white;
+    margin-right: 10px;
+    margin-top: 13px;
+}
+.buttons button {
+    background-color: rgb(255, 89, 59);
+}
+.buttons a{
+    background-color: rgb(59, 137, 255);
+}
+.scores_div{
+    display: flex;
+    justify-content: space-between;
+}
+.scores_div .user{ 
+}
+.scores_div .overall{
+
+}
+
+
+.sign_in_section, .sign_up_section{
+    display: flex;    
+    flex-direction: column;
+    margin: 0px auto;
+    max-width: 500px;
+    text-align: center;
+}
+.sign_in_section form div, .sign_up_section form div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
+    text-align: left;
+}
+.sign_up_section form div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.sign_in_section input, .sign_up_section input {
+    font-size: 1.3em;
+    padding: 10px 20px; 
+    border-radius: 5px;
+}
+.sign_in_section label, .sign_up_section label{
+    font-size: 1.3em;
+    padding: 10px 20px; 
+}
+.sign_in_section button, .sign_in_section a, .sign_up_section button{
+    background: rgb(0 212 126);
+    padding: 16px;
+    cursor: pointer;
+    border-radius: 7px;
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 20px black;
+    border: 0px;
+    margin-top: 15px;
+    margin-right: 0px;
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+}
+.sign_in_section a{
+    background: rgb(0 188 212);
+}
+.sign_in_section .buttons {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 6px;
+} 
+.sign_up_section button{
+    width: 58%;
+    font-size: 1.2em;
+}
+table{
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    color:#551a8b;
 }

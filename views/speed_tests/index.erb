@@ -1,25 +1,23 @@
  
-<% if logged_in? %>
-    <h2>Logged in user: <%= current_user()['first_name'] %></h2>
-    <form action="/sessions" method="POST">
-    <input type="hidden" name="_method" value="delete">
-        <button>Sign Out</button>
-    </form>
-    <a href="/history">My Past Attempts</a>
-<% else %>
-    <a href="/sign_up">Sign up</a>
-    <a href="/sign_in">Sign in</a>
-<% end %>
-<a href="/all_paragraphs">View Paragraphs</a>
 <section class="testSection">
-    <p>Start typing</p>
+    <p>Test your typing...</p>
     <div class="typing_area">
         <input id="key_catcher"></textarea>
         <div class="test_tracker"><span class="done"></span><span class="todo"><%=paragraph%></span></div>
         
     </div> 
-    
+    <div class="scores">
+        <span class="speed">0</span>
+        <span class="waiting">saving...</span>
+        <span class="accuracy">0</span>
+    </div>
 </section>
+
+<% if !logged_in? %>
+    <section class="call_for_action">
+            <p><a class="sign_in" href="/sign_in">Sign In</a>  or  <a class="sign_up" href="/sign_up">Create Account</a>  to track your progress</p>
+    </section>
+<% end %>
 
 <section class="leaderBoardSection">
     <h2>Leaderboard</h2>

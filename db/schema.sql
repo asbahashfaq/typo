@@ -43,6 +43,7 @@ CREATE TABLE paragraphs(
     paragraph TEXT,
     attempts INTEGER,
     highest_score INTEGER, 
-    avg_accuracy INTEGER
+    avg_accuracy INTEGER,
+    top_scorer TEXT
 );
 

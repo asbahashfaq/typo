@@ -13,6 +13,10 @@ var error_sound = document.querySelector('#error_sound');
 var typing_text = document.querySelector('.typing_area .todo')
 var typed_text = document.querySelector('.typing_area .done') 
 var keyCatcher = document.querySelector('#key_catcher') 
+
+var speed_tracker = document.querySelector('.scores .speed')
+var accuracy_tracker = document.querySelector('.scores .accuracy')
+
 var firstKey = false, completed = false;
 var start, end;
 keyCatcher.addEventListener("keypress", function(event) {
@@ -35,12 +39,20 @@ keyCatcher.addEventListener("keypress", function(event) {
     }else{ 
         audio.play();
         errors ++;
-        if (errors > 10)
+        if (errors % 10 == 0)
             ohmygod.play();
     }
     accuracy = (correct/(errors+correct))*100
+    accuracy_tracker.textContent = accuracy.toFixed(1)
+
+    
+    time_in_seconds = (new Date().getTime() - start)/1000
+    cpm = ( correct / time_in_seconds ) * 60 
+    wpm = cpm / 5 
+    speed_tracker.textContent = wpm.toFixed(0)
     if (typing_text.textContent == "" && completed == false)
     {
+        document.querySelector(".waiting").classList.add("waiting_visible");
         end = new Date().getTime(); 
         time_in_seconds = (end-start)/1000
         cpm = ( correct / time_in_seconds ) * 60 
@@ -91,3 +103,8 @@ keyCatcher.addEventListener("keypress", function(event) {
 //     firstEntryDone = 1; 
 
 // });
+
+// document.querySelector('.user_name').addEventListener('click', function(event){
+//     event.target.classList.add("hide")
+//     document.querySelector('.signout_form').classList.add("show")
+// })

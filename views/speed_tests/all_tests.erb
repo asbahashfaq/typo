@@ -1,39 +1,61 @@
+ 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past tests</title>
-</head>
-<body>
-    <h2>
-        Speed tests : 
-    </h2>
-
-    <section class="<%=test_visibility%>">
+    <section class="<%=test_visibility%> testSection">
         <p>Start typing</p>
         <div class="typing_area">
             <input id="key_catcher"></textarea>
             <div class="test_tracker"><span class="done"></span><span class="todo"><%=paragraph%></span></div>
             
         </div> 
+        <div class="scores">
+            <span class="speed">0</span>
+            <span class="waiting">saving...</span>
+            <span class="accuracy">0</span>
+        </div>
     </section>
-    <p>all tests: </p>
-    <ol>
-        <% paragraphs.each do |para| %>
-            <li>  
-                <p class="paragraph"><%= para['paragraph'] %></p>
-                <span class="attempts"><%= para['attempts'] %></span>
-                <span class="highest_score"><%= para['highest_score'] %></span>
-                <span class="avg_accuracy"><%= para['avg_accuracy'] %></span>
-                <span class="top_scorer"><%= para['top_scorer'] %></span>
-                <div class="buttons">
-                    <a href="/try/<%= para['id'] %>">Try this</a> 
-                </div>
-            </li>
-        <% end %>
-    </ol>
-</body>
-</html>attempts | highest_score | avg_accuracy | top_scorer
+    
+    <section class="paragraphsSection all_tests_section">
+
+        <h2>
+            Test paragraphs: 
+        </h2>
+        <table>
+            <thead>
+                <tr>
+                    <!--th colspan="1"> </th-->
+                    <th colspan="1">Paragraph</th>
+                    <th colspan="1">Attempts</th>
+                    <th colspan="1">Fastest Score</th>
+                    <th colspan="1">Average Accuracy</th>
+                    <th colspan="1">Top Scorer</th>
+                    <th colspan="1"></th>
+                </tr>
+            </thead>
+            <tbody>
+                 <% paragraphs.each do |para| %>
+                <tr>
+                    <td> <%= para['paragraph'] %></td>
+                    <td> <%= para['attempts'] %> </td>
+                    <td> <%= para['highest_score'] %></td>
+                    <td> <%= para['avg_accuracy'] %> </td>
+                    <td> <%= para['top_scorer'] %></td>
+                    <td> <a href="/try/<%= para['id'] %>">Try this</a> </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <!--ol>
+            <% paragraphs.each do |para| %>
+                <li>  
+                    <p class="paragraph"><%= para['paragraph'] %></p>
+                    <span class="attempts"><%= para['attempts'] %></span>
+                    <span class="highest_score"><%= para['highest_score'] %></span>
+                    <span class="avg_accuracy"><%= para['avg_accuracy'] %></span>
+                    <span class="top_scorer"><%= para['top_scorer'] %></span>
+                    <div class="buttons">
+                        <a href="/try/<%= para['id'] %>">Try this</a> 
+                    </div>
+                </li>
+            <% end %>
+        </ol-->
+    </section> 

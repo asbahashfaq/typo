@@ -1,43 +1,46 @@
+ 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past tests</title>
-</head>
-<body>
-    <h2>
-        Speed tests : 
-    </h2>
-
-    <section class="<%=test_visibility%>">
+    <section class="<%=test_visibility%> testSection">
         <p>Start typing</p>
         <div class="typing_area">
             <input id="key_catcher"></textarea>
             <div class="test_tracker"><span class="done"></span><span class="todo"><%=paragraph%></span></div>
             
         </div> 
+        <div class="scores">
+            <span class="speed">0</span>
+            <span class="waiting">saving...</span>
+            <span class="accuracy">0</span>
+        </div>
     </section>
-    <ol>
-        <% attempts.each do |s_test| %>
-            <li> 
-                <!--id, paragraph, wpm, accuracy, test_time, attempts, highest_score, avg_accuracy, paragraph_id -->
-                <p class="paragraph"><%= s_test['paragraph'] %></p>
-                <span class="wpm"><%= s_test['wpm'] %></span>
-                <span class="accuracy"><%= s_test['accuracy'] %></span>
-                <span class="highest_score"><%= s_test['highest_score'] %></span>
-                <span class="avg_accuracy"><%= s_test['avg_accuracy'] %></span>
-                <div class="buttons">
-                    <a href="/retry/<%= s_test['paragraph_id'] %>">Retry</a>
-                    <form action="/speed_tests/<%= s_test['id'] %>" method="POST">
-                        <input type="hidden" name="_method" value="delete">
-                        <button>Delete</button>
-                    </form>
-                </div>
-            </li>
-        <% end %>
-    </ol>
-</body>
-</html>
+    <section class="paragraphsSection history">
+
+        <h2>
+            Test history: 
+        </h2>
+        <ol>
+            <% attempts.each do |s_test| %>
+                <li> 
+                    <!--id, paragraph, wpm, accuracy, test_time, attempts, highest_score, avg_accuracy, paragraph_id -->
+                    <p class="paragraph"><%= s_test['paragraph'] %></p>
+                    <div class="scores_div">
+                        <div class="user">
+                            <span class="wpm">Speed: <%= s_test['wpm'] %></span>
+                            <span class="accuracy">Accuracy: <%= s_test['accuracy'] %></span>
+                        </div>
+                        <div class="overall">
+                            <span class="highest_score">Highest Score: <%= s_test['highest_score'] %></span>
+                            <span class="avg_accuracy">Avg Accuracy: <%= s_test['avg_accuracy'] %></span>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="/retry/<%= s_test['paragraph_id'] %>">Retry</a>
+                        <form action="/speed_tests/<%= s_test['id'] %>" method="POST">
+                            <input type="hidden" name="_method" value="delete">
+                            <button>Delete</button>
+                        </form>
+                    </div>
+                </li>
+            <% end %>
+        </ol>
+    </section> 

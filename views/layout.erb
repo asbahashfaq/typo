@@ -2,17 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <title>Typo.</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" 
-        type="image/png" 
-        href="/media/images/favicon.png" />
+  <link rel="icon" type="image/png" href="/media/images/favicon.png" />
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/warenhaus-typenhebel" type="text/css"/>
 </head>
 <body>
+  <header>
+    <div class='logo'>
+      <h1><a href="/">Typo.</a></h1>
+      <!--p>No typos.</p-->
+    </div>
+    <nav>
+    <a href="/all_paragraphs">View Paragraphs</a>
+    <% if logged_in? %>
+      <a href="/history">Previous Attempts</a>
+      <span class="username_block">
+        <span class='user_name'><%= current_user()['first_name'] %> <%= current_user()['last_name'] %></span>
+        <form class='signout_form' action="/sessions" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <button>Sign Out</button>
+        </form>
+      </span>
+    <% else %>
+      <a class="sign_in" href="/sign_up">Create Account</a>
+      <a class="sign_up" href="/sign_in">Sign In</a>
+    <% end %>
+    </nav>
+  </header>
 
   <%= yield %>
 
+  <footer>
+      Project 2 - SEI - General Assembly
+      Asbah Ashfaq
+  </footer>
 </body>
 <script src="/javascripts/application.js"></script>
 </html>
