@@ -5,18 +5,18 @@ A full-stack database backed Sinatra application, where users can test their typ
 ## Demonstration
 <a href="https://gentle-river-53271.herokuapp.com/">Link to website</a>
 
-<img src="/demo/demo.gif" width='500px' style="text-align:center;">
+<p><img src="/demo/demo.gif" width='500px' style="text-align:center;"></p>
 
 ## My plan / approach
 The planning process involved the following steps: 
 
 ### 1- Wireframing 
 The Typo app has three different pages, the home page contains the main functionality of the app, where users can test their typing speed. Other pages include All Paragraphs, Login page, Sign up page, and Test History for each user.
-<img src="/demo/wireframes.png" width='500px' style="text-align:center;">
+<p><img src="/demo/wireframes.png" width='500px' style="text-align:center;"></p>
 
 ### 2- ERD diagram
 The database schema consists of 5 tables, with one to one, one to many and many to many relationships between them. The schema was thoroughly planned to make the development process as smooth as possible. The ERD diagram shows the relationship between all entities in the database. 
-<img src="/demo/erd_diagram.jpeg" width='500px' style="text-align:center;">
+<p><img src="/demo/erd_diagram.jpeg" width='500px' style="text-align:center;"></p>
 
 ### 3- Backend Development
 The backend development invovled the following steps: 

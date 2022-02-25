@@ -74,3 +74,8 @@ def get_user_attempts(user_id)
         INNER JOIN paragraphs ON tests.paragraph_id = paragraphs.id
         WHERE user_id = $1 ORDER BY tests.id DESC;", [ user_id ])
 end
+
+def get_current_user_score()
+    run_sql("SELECT * FROM scores WHERE user_id = $1", [session['user_id']])[0]
+end
+
